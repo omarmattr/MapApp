@@ -17,14 +17,17 @@ struct LocationsView: View {
             VStack(spacing: 0){
                 header
                     .padding(.horizontal)
+                    .frame(maxWidth: 600)
                 Spacer()
                 locationStack
+                
             }
             
         }
         .sheet(item: $vm.sheetLocation) { location in
             DetailsView(location: location)
         }
+
         
     }
     
@@ -90,6 +93,7 @@ extension LocationsView {
                     DetailsListView(location: location)
                         .shadow(color: Color.black.opacity(0.3), radius: 20)
                         .padding()
+                        .frame(maxWidth: 600)
                         .transition (.asymmetric(insertion: .move(edge: .trailing),removal: .move (edge: .leading)))
                 }
             }
